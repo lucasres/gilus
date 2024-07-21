@@ -1,13 +1,11 @@
 package entities
 
-import "time"
-
 type PingCron struct {
-	Name   string
-	PingAt time.Time
+	PingAt string `json:"pingAt"`
+	Name   string `json:"name"`
 }
 
-func NewPingCron(n string, p time.Time) *PingCron {
+func NewPingCron(n, p string) *PingCron {
 	return &PingCron{
 		Name:   n,
 		PingAt: p,

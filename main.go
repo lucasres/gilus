@@ -15,9 +15,8 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"message": "pong"})
 	})
 
-	cron := router.Group("/crons")
-	cron.GET("/", controllers.ListCronHandler)
-	cron.POST("/", controllers.PingCronHandler)
+	router.GET("/crons", controllers.ListCronHandler)
+	router.POST("/crons", controllers.PingCronHandler)
 
 	if err := router.Run(":8000"); err != nil {
 		log.Fatalf("cant listiner in 8000: %e", err)
