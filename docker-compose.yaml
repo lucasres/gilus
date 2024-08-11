@@ -1,0 +1,13 @@
+version: '3.5'
+services:
+  gilus:
+    container_name: gilus-api
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    environment:
+      - GILUS_PORT=:80
+    ports:
+      - 80:80

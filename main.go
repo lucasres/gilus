@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -32,8 +33,7 @@ func main() {
 		c.Status(http.StatusOK)
 	})
 
-	if err := router.Run(":8000"); err != nil {
+	if err := router.Run(os.Getenv("GILUS_PORT")); err != nil {
 		log.Fatalf("cant listiner in 8000: %e", err)
 	}
-
 }
