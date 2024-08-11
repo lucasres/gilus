@@ -51,9 +51,6 @@ func (p *PingCronUseCase) Execute(ctx context.Context, e entities.PingCron) erro
 		return fmt.Errorf("erro when check if has cron name saved: %w", err)
 	}
 
-	fmt.Println("total")
-	fmt.Println(len(has.Items))
-
 	if len(has.Items) == 0 {
 		av := make(map[string]types.AttributeValue)
 		av["name"] = &types.AttributeValueMemberS{Value: e.Name}
